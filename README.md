@@ -1,8 +1,8 @@
 # MSI-2015-JAVA
 
-1-html branch
+2-css branch
 
-1. index.html page
-2. HTML structure(Elements, Attributes)
-3. Table with header and rows
-4. Form with inputs
+1. style.css file
+2. CSS structure(syntax, classes, id, selectors)
+3. Coloring
+4. Layouts
