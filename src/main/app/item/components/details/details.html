@@ -1,0 +1,27 @@
+<div>
+    <h1>Item 1 details</h1>
+    <form name="updateItemForm" novalidate>
+        <div>
+            <label>Identifier</label>
+            <input type="text" disabled>
+        </div>
+        <div>
+            <label>Name</label>
+            <input name="itemName" type="text" required>
+        </div>
+        <div>
+            <label>Quantity</label>
+            <input type="text">
+        </div>
+        <div>
+            <label>Size</label>
+            <input type="text">
+        </div>
+
+        <button>Update</button>
+        <button>Delete</button>
+        <!-- https://github.com/angular-ui/ui-router/wiki/The-Components -->
+        <a ui-sref="root.itemList">Back to list</a>
+    </form>
+
+</div>

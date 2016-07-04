@@ -17,14 +17,14 @@ module.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('itemList', {
       url: "/items",
-      template: "<p>Items</p><a ui-sref=\"itemNew\">Navigate</a>"
+      template: "<item-list></item-list>"
     })
     .state('itemNew', {
       url: "/items/new",
-      template: "<p>New Item</p>"
+      template: "<item-new></item-new>"
     })
     .state('ItemDetails', {
       url: "/items/:id",
-      template: "<p>Item Details</p>"
+      template: "<item-details></item-details>"
     });
 });
