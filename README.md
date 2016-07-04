@@ -1,8 +1,8 @@
 # MSI-2015-JAVA
 
-2-css branch
+3-javascript branch
 
-1. style.css file
-2. CSS structure(syntax, classes, id, selectors)
-3. Coloring
-4. Layouts
+1. javascript.js file
+2. Element retrieval
+3. Changing element style
+4. Events handling
