@@ -1,11 +1,5 @@
-(function () {
-  'use strict';
 
-  require('style.css');
+require('main_module');
+require('header_component');
 
-  window.hideElement = function() {
-    var element = document.getElementById('hide-me');
-    element.style.display = "none";
-  };
-
-})();
+angular.bootstrap(document, ['MsiApp']);
