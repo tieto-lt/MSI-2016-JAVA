@@ -4,8 +4,9 @@ function Controller() {
   var vm = this;
 
   vm.value = "This is my OSOM header";
-  
+
 }
+
 var templateUrl = require('./header.html');
 require('header.scss');
 module.component('msiHeader', {
