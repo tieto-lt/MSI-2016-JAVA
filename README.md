@@ -1,7 +1,6 @@
 # MSI-2015-JAVA
 
-10-form-validation branch
+11-sass branch
 
-  1. required
-  2. $valid and $error
-  3. ng messages
+  1. sass nesting
+  2. sass variables

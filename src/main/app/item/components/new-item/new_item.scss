@@ -1,0 +1,16 @@
+$from-input-color: blue;
+
+.msi-form-item {
+
+  .msi-label {
+    background: $from-input-color
+  }
+
+  .msi-control {
+    color: $from-input-color
+  }
+
+  .msi-error-message {
+    color: red
+  }
+}

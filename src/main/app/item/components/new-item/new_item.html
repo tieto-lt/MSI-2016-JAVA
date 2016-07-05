@@ -1,10 +1,10 @@
 <p>
     <h1>Create new item</h1>
     <form name="createItemForm" novalidate>
-        <div class="form-group">
-            <label>Name</label>
-            <input class="form-control" name="itemName" type="text" ng-model="$ctrl.item.name" required>
-            <div ng-messages="createItemForm.itemName.$error" style="color:maroon" role="alert">
+        <div class="form-group msi-form-item">
+            <label class="msi-label">Name</label>
+            <input class="form-control msi-control" name="itemName" type="text" ng-model="$ctrl.item.name" required>
+            <div ng-messages="createItemForm.itemName.$error" class="msi-error-message" role="alert">
                <div ng-message="required">Field is required</div>
            </div>
         </div>

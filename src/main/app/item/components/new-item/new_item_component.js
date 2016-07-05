@@ -14,6 +14,7 @@ function Controller(ItemService) {
 }
 
 Controller.$inject = ['ItemService'];
+require('new_item.scss');
 //You can also require SASS files related to this component
 module.component('itemNew', {
     controller: Controller,
