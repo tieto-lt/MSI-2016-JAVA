@@ -3,7 +3,10 @@
     <form name="createItemForm" novalidate>
         <div class="form-group">
             <label>Name</label>
-            <input class="form-control" name="itemName" type="text" ng-model="$ctrl.item.name">
+            <input class="form-control" name="itemName" type="text" ng-model="$ctrl.item.name" required>
+            <div ng-messages="createItemForm.itemName.$error" style="color:maroon" role="alert">
+               <div ng-message="required">Field is required</div>
+           </div>
         </div>
         <div class="form-group">
             <label>Quantity</label>
@@ -14,7 +17,7 @@
             <input class="form-control" ng-model="$ctrl.item.size" type="text">
         </div>
 
-        <button class="btn btn-success" type="submit" ng-click="$ctrl.create()">Create</button>
+        <button class="btn btn-success" type="submit" ng-click="createItemForm.$valid && $ctrl.create()">Create</button>
         <a class="btn btn-default" ui-sref="itemList">Back to list</a>
     </form>
 </div>
