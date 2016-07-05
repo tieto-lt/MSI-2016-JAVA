@@ -1,7 +1,8 @@
 # MSI-2015-JAVA
 
-8-bootstrap-css branch
+9-promises branch
 
-  1. Bootstrap css library
-  2. forms styling
-  3. table styling
+  1. Angualar Service
+  2. $http
+  3. $q and promises
+  4. Form ng-model
