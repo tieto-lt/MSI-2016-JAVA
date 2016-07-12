@@ -2,14 +2,22 @@ package lt.tieto.msi2016.item.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class Item {
 
     private Long id;
 
+    @NotNull
     private String name;
 
+    @Min(0)
     private Integer quantity;
 
+    @NotNull
+    @Pattern(regexp="\\d*x\\d*")
     private String size;
 
     public Item() {

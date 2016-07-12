@@ -1,9 +1,11 @@
 # MSI-2016-JAVA
 
-15-post
+16-validation
 
-1. Changing data with HTTP POST request 
+Server side validation
 
-2. Autowiring dependencies
+1. `javax.validation.constraints` annotations on model bean 
 
-3. Introducing service layer
+2. Validating models 
+
+3. Controller exception handling in base class 
