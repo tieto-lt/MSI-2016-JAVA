@@ -1,7 +1,9 @@
 # MSI-2016-JAVA
 
-14-json
+15-post
 
-1. Item model
+1. Changing data with HTTP POST request 
 
-2. Controller returning JSON from java model 
+2. Autowiring dependencies
+
+3. Introducing service layer

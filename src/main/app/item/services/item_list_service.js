@@ -3,13 +3,7 @@ var module = require('main_module');
 function Service($http, $q) {
 
   this.get = function(id) {
-    return $http.get('/api/items').then(
-      function(response) {
-        return response.data.filter(function(item) {
-          return item.id === id;
-        })[0];
-      }
-    );
+    return $http.get('/api/items/' + id);
   };
 
   this.all = function() {
@@ -17,21 +11,15 @@ function Service($http, $q) {
   };
 
   this.update = function(item) {
-    var d = $q.defer();
-    d.resolve(item);
-    return d.promise;
+    return $http.put('/api/items/' + item.id, item);
   };
 
   this.create = function(item) {
-    var d = $q.defer();
-    d.resolve(item);
-    return d.promise;
+    return $http.post('/api/items/', item);
   };
 
   this.remove = function(id) {
-    var d = $q.defer();
-    d.resolve(id);
-    return d.promise;
+    return $http.delete('/api/items/' + id);
   };
 }
 

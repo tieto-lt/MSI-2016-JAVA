@@ -40,8 +40,7 @@ function Controller($state, $stateParams, ItemService) {
         if (vm.itemId) {
             ItemService.get(vm.itemId).then(
                 function (response) {
-                    vm.item = response;
-                    console.log(vm.item);
+                    vm.item = response.data;
                 },
                 function (err) {
                     console.log('Error', err);
