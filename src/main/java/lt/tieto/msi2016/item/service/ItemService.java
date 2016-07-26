@@ -2,54 +2,68 @@ package lt.tieto.msi2016.item.service;
 
 
 import lt.tieto.msi2016.item.model.Item;
+import lt.tieto.msi2016.item.repository.ItemRepository;
+import lt.tieto.msi2016.item.repository.model.ItemDb;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ItemService {
 
-    private static final List<Item> ITEMS_LIST = Arrays.asList(
-            new Item(1l, "Item 1", 1, "20x20"),
-            new Item(2l, "Item 2", 10, "200x120"),
-            new Item(3l, "Item 3", 15, "20x10"),
-            new Item(4l, "Item 4", 15, "20x10")
-    );
+    @Autowired
+    private ItemRepository repository;
 
     public Item get(Long id) {
-        return getItemById(id);
+        ItemDb item = repository.findOne(id);
+        return mapToItem(item);
     }
 
     public List<Item> all() {
-        return ITEMS_LIST;
+        return repository.findAll().stream()
+                .map(ItemService::mapToItem)
+                .collect(Collectors.toList());
     }
 
     public Item createOrUpdateItem(Long id, Item item) {
-        Item existingItem = getItemById(id);
-        if (existingItem != null) {
-            ITEMS_LIST.remove(existingItem);
-            ITEMS_LIST.add(item);
+        if (repository.exists(id)) {
+            ItemDb updated = repository.update(mapToItemDb(id, item));
+            return mapToItem(updated);
         } else {
-            ITEMS_LIST.add(item);
+            ItemDb created = repository.create(mapToItemDb(id, item));
+            return mapToItem(created);
         }
-        return item;
     }
 
     public Item createItem(Item item) {
-        ITEMS_LIST.add(item);
-        return item;
+        return mapToItem(repository.create(mapToItemDb(item)));
     }
 
     public void remove(Long id) {
-        Item existingItem = getItemById(id);
-        ITEMS_LIST.remove(existingItem);
+        repository.delete(id);
     }
 
-    private Item getItemById(Long id) {
-        return ITEMS_LIST.stream()
-                .filter(i -> i.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+    private static Item mapToItem(ItemDb db) {
+        Item api = new Item();
+        api.setId(db.getId());
+        api.setName(db.getName());
+        api.setQuantity(db.getQuantity());
+        api.setSize(db.getSize());
+        return api;
+    }
+
+    private static ItemDb mapToItemDb(Long id, Item api) {
+        ItemDb db = new ItemDb();
+        db.setId(id);
+        db.setName(api.getName());
+        db.setQuantity(api.getQuantity());
+        db.setSize(api.getSize());
+        return db;
+    }
+
+    private static ItemDb mapToItemDb(Item api) {
+        return mapToItemDb(api.getId(), api);
     }
 }

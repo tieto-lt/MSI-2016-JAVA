@@ -1,11 +1,13 @@
 # MSI-2016-JAVA
 
-16-validation
+17-db
 
-Server side validation
+Database 
 
-1. `javax.validation.constraints` annotations on model bean 
+1. Using MySQL database for persistence 
 
-2. Validating models 
+2. Adding application properties for database connection
 
-3. Controller exception handling in base class 
+3. Database migration using `liquibase`
+
+4. Separate database layer (repository)
