@@ -1,13 +1,11 @@
 # MSI-2016-JAVA
 
-17-db
+17-service
 
-Database 
+Service layer that contains logic
 
-1. Using MySQL database for persistence 
+1. Service layer contains bossiness logic
 
-2. Adding application properties for database connection
+2. @Transactional
 
-3. Database migration using `liquibase`
-
-4. Separate database layer (repository)
+3. Custom exception handling

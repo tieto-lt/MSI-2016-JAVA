@@ -3,6 +3,7 @@ package lt.tieto.msi2016.utils.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import lt.tieto.msi2016.utils.exceptions.DataNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class BaseController {
 
     private static final Logger LOG = LoggerFactory.getLogger(BaseController.class);
+
+    @ExceptionHandler(DataNotFoundException.class)
+    private ResponseEntity<Void> handleResourceNotFoundException(DataNotFoundException e) {
+        LOG.debug("Data not found", e);
+        return ResponseEntity.notFound().build();
+    }
 
     @ExceptionHandler(Exception.class)
     private ResponseEntity<Void> exception(Exception e) {

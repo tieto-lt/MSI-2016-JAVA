@@ -4,8 +4,10 @@ package lt.tieto.msi2016.item.service;
 import lt.tieto.msi2016.item.model.Item;
 import lt.tieto.msi2016.item.repository.ItemRepository;
 import lt.tieto.msi2016.item.repository.model.ItemDb;
+import lt.tieto.msi2016.utils.exceptions.DataNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,17 +18,24 @@ public class ItemService {
     @Autowired
     private ItemRepository repository;
 
+    @Transactional(readOnly = true)
     public Item get(Long id) {
         ItemDb item = repository.findOne(id);
-        return mapToItem(item);
+        if (item != null) {
+            return mapToItem(item);
+        } else {
+            throw new DataNotFoundException("Item with id " + id + " not found");
+        }
     }
 
+    @Transactional(readOnly = true)
     public List<Item> all() {
         return repository.findAll().stream()
                 .map(ItemService::mapToItem)
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public Item createOrUpdateItem(Long id, Item item) {
         if (repository.exists(id)) {
             ItemDb updated = repository.update(mapToItemDb(id, item));
@@ -37,14 +46,18 @@ public class ItemService {
         }
     }
 
+    @Transactional
     public Item createItem(Item item) {
         return mapToItem(repository.create(mapToItemDb(item)));
     }
 
+    @Transactional
     public void remove(Long id) {
+        if (!repository.exists(id)) {
+            throw new DataNotFoundException("Item with id " + id + " doesn't exist");
+        }
         repository.delete(id);
     }
-
     private static Item mapToItem(ItemDb db) {
         Item api = new Item();
         api.setId(db.getId());
