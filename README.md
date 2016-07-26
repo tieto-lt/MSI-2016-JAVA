@@ -1,11 +1,9 @@
 # MSI-2016-JAVA
 
-17-service
+19-security
 
-Service layer that contains logic
+1. JWT tokens and OAuth2
 
-1. Service layer contains bossiness logic
+2. Token management in frontend using cookies
 
-2. @Transactional
-
-3. Custom exception handling
+3. Security configuration in server

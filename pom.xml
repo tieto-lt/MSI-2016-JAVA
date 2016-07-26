@@ -21,6 +21,7 @@
         <commons-lang3.version>3.4</commons-lang3.version>
         <spring.data.jdbc.repository>0.5.0</spring.data.jdbc.repository>
         <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
+        <spring.oauth.version>2.0.10.RELEASE</spring.oauth.version>
     </properties>
 
     <build>
@@ -98,7 +99,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
 
+        <!-- DB -->
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
@@ -113,6 +119,21 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
             <version>${mysql-connector-java.version}</version>
+        </dependency>
+
+        <!-- Security -->
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>${spring.oauth.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
         </dependency>
 
         <dependency>

@@ -10,10 +10,16 @@ module.config(function($stateProvider, $urlRouterProvider) {
     .state('home', {
       url: '/',
       template: "<h4>This is home</h4>",
+      data: {
+        isPublic: true
+      }
     })
-    .state('Login', {
+    .state('login', {
       url: "/login",
-      template: "<p>This is login page</p>",
+        template: "<login></login>",
+        data: {
+          isPublic: true
+        }
     })
     .state('itemList', {
       url: "/items",
@@ -28,3 +34,19 @@ module.config(function($stateProvider, $urlRouterProvider) {
       template: "<item-details></item-details>"
     });
 });
+
+
+module.run(['$transitions', 'Session', '$state', function($transitions, Session, $state) {
+
+  Session.initHttp();
+
+  $transitions.onStart(
+      {
+        to: function (state) { return !state.data || !state.data.isPublic; }
+      },
+      function () {
+        if (!Session.isSessionActive()) {
+          return $state.target("login");
+        }
+      });
+}]);
