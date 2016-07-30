@@ -1,5 +1,12 @@
 var module = require('main_module');
 
+module.component('itemDetails', {
+    controller: Controller,
+    templateUrl: require('./details.html')
+});
+
+Controller.$inject = ['$state', '$stateParams', 'ItemService'];
+
 function Controller($state, $stateParams, ItemService) {
     //Controller body goes here
 
@@ -51,9 +58,3 @@ function Controller($state, $stateParams, ItemService) {
 }
 
 
-Controller.$inject = ['$state', '$stateParams', 'ItemService'];
-
-module.component('itemDetails', {
-    controller: Controller,
-    templateUrl: require('./details.html')
-});
