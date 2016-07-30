@@ -9,7 +9,7 @@ module.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      template: "<h4>This is home</h4>",
+      template: "<h4>This is home 4 ze <a ui-sref=\"itemList\">item list</a>.</h4>",
     })
     .state('Login', {
       url: "/login",
