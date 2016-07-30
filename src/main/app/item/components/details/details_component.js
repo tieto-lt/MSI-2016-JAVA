@@ -18,7 +18,10 @@ function Controller($state, $stateParams, ItemService) {
 
     function update() {
         ItemService.update(vm.item).then(
-            function () { console.log('Update success'); },
+            function () {
+                vm.errors = [];
+                console.log('Update success');
+            },
             function (err) {
                 if (err.status === 400) {
                     vm.errors = err.data;
@@ -30,7 +33,10 @@ function Controller($state, $stateParams, ItemService) {
 
     function remove() {
         ItemService.remove(vm.itemId).then(
-            function () { $state.go('itemList'); },
+            function () {
+                vm.errors = [];
+                $state.go('itemList');
+            },
             function (err) {
                 console.log('Error', err);
             });

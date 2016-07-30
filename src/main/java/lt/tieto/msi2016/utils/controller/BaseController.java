@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import static java.util.stream.Collectors.toList;
+
 public class BaseController {
 
     private static final Logger LOG = LoggerFactory.getLogger(BaseController.class);
@@ -31,7 +33,7 @@ public class BaseController {
         return result.getFieldErrors()
                 .stream()
                 .map(error -> new FieldValidationError(error.getField(), error.getDefaultMessage()))
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 
     public static class FieldValidationError {
