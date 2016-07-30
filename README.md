@@ -1,4 +1,4 @@
-# MSI-2015-JAVA
+# MSI-2016-JAVA
 
 11-sass branch
 
