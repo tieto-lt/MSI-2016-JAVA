@@ -9,11 +9,11 @@ module.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      template: "<h4>This is home</h4>",
+      template: "<h4>This is home</h4>"
     })
     .state('Login', {
       url: "/login",
-      template: "<p>This is login page</p>",
+      template: "<p>This is login page</p>"
     })
     .state('itemList', {
       url: "/items",
