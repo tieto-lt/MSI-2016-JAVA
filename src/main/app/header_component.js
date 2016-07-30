@@ -3,7 +3,7 @@ var module = require('main_module');
 function Controller() {
   var vm = this;
 
-  vm.value = "This is my OSOM header";
+  vm.value = "This is my OSOM Header";
 
 }
 

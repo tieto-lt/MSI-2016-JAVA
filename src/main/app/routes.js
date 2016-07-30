@@ -9,22 +9,22 @@ module.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      template: "<h4>This is home</h4>",
+      template: '<h4>This is home of <a ui-sref="itemList">an item list</a>.</h4>'
     })
     .state('Login', {
-      url: "/login",
-      template: "<p>This is login page</p>",
+      url: '/login',
+      template: '<p>This is login page</p>'
     })
     .state('itemList', {
-      url: "/items",
-      template: "<item-list></item-list>"
+      url: '/items',
+      template: '<item-list></item-list>'
     })
     .state('itemNew', {
-      url: "/items/new",
-      template: "<item-new></item-new>"
+      url: '/items/new',
+      template: '<item-new></item-new>'
     })
-    .state('ItemDetails', {
-      url: "/items/:id",
-      template: "<item-details></item-details>"
+    .state('itemDetails', {
+      url: '/items/:id',
+      template: '<item-details></item-details>'
     });
 });
