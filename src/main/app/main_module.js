@@ -1,3 +1,4 @@
+require('style.css');
 require('angular');
 
 var _module = angular.module('MsiApp', []);
