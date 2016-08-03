@@ -144,3 +144,30 @@ databaseChangeLog:
                 name: authority
                 value: 'ADMIN'
             tableName: authorities
+
+  - changeSet:
+      id: 7
+      author: tieto
+      changes:
+        - insert:
+            columns:
+            - column:
+                name: username
+                value: 'operator'
+            - column:
+                name: password
+                value: '$2a$10$goYUjJpDuhxXrFWO60lPkufOIEMoUQ9MmdkHYb2q6k0lVlEJH2Nve'
+            - column:
+                name: enabled
+                valueBoolean: true
+            tableName: users
+        - insert:
+            columns:
+            - column:
+                name: username
+                value: 'operator'
+            - column:
+                name: authority
+                value: 'OPERATOR'
+            tableName: authorities
+
