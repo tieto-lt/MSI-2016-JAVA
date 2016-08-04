@@ -39,6 +39,7 @@ function Service ($cookies, jwtHelper, $http) {
     }
 
     function invalidate() {
+        $http.defaults.headers.common.Authorization=undefined;
         return $cookies.remove("access_token");
     }
 }

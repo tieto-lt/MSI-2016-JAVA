@@ -36,7 +36,8 @@ module.config(function($stateProvider, $urlRouterProvider) {
     .state('root.ItemDetails', {
       url: "/items/:id",
       template: "<item-details></item-details>"
-    });
+    })
+    .state('root.operatorHome', {});
 });
 
 module.run(['$transitions', 'Session', '$state', function($transitions, Session, $state) {

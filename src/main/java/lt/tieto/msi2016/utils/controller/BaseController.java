@@ -43,10 +43,16 @@ public class BaseController {
     }
 
     @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<Void> handleAccessDenied() {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    public ResponseEntity<Error> handleAccessDenied() {
+        Error err = new Error();
+        err.message = "Access denied";
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                             .body(err);
     }
 
+    public static class Error {
+        public String message;
+    }
     public static class FieldValidationError {
         private String name;
         private String message;
